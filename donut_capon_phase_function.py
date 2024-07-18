@@ -123,7 +123,7 @@ def radarConfig(config) :
 
     chirp_per_sec = chirp_per_frame * frame_per_sec
    
-    return tx_num,rx_num,chirp_per_sec,chirp_per_frame,frame_num,adc_sample,bandwidth,c_value
+    return tx_num,rx_num,chirp_per_sec,chirp_per_frame,frame_per_sec,frame_num,adc_sample,bandwidth,c_value
 
     
 ############## New Oraganize function ###################
@@ -132,6 +132,8 @@ def newOrganize(raw_data,tx_num,rx_num,adc_sample,frame_num) :
     # for IWR1443BOOST (4 LVDS lane, Complex mode)
 
     txChirp_num = len(raw_data)//2//rx_num//adc_sample//frame_num
+    print(txChirp_num)
+    
 
     ret = np.zeros(len(raw_data)//2 , dtype=complex)
 
